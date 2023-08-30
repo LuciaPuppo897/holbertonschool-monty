@@ -60,7 +60,7 @@ int main(void)
 
 	if (!inputFile)
 	{
-		perror("L4: usage: push integer");
+		printf("L4: usage: push integer");
 		return (EXIT_FAILURE);
 	}
 
