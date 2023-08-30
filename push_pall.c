@@ -20,7 +20,7 @@ void push(stack_t **stack, unsigned int line_number)
 
 	if (!new_node)
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -44,9 +44,9 @@ void pall(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	stack_t *current = *stack;
 
-	while (current)
+	while (current != NULL)
 	{
-		printf("%d\n", current->n);
+		dprintf(STDOUT_FILENO, "%d\n", current->n);
 		current = current->next;
 	}
 }
@@ -60,7 +60,7 @@ int main(void)
 
 	if (!inputFile)
 	{
-		perror("Error opening input file");
+		perror("L4: usage: push integer");
 		return (EXIT_FAILURE);
 	}
 
