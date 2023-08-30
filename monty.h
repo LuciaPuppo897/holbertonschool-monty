@@ -34,9 +34,7 @@ typedef struct instruction_s
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include <ctype.h>
-
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -46,13 +44,13 @@ extern unsigned int isFail;
 int read_file(FILE *fd);
 int parse_line(char *line, stack_t **h, unsigned int lnum);
 
-void push(stack_t **h, unsigned int ln);
-void pall(stack_t **h, unsigned int ln);
-void pint (stack_t **h, unsigned int ln);
-void pop(stack_t **h, unsigned int ln);
-void swap(stack_t **h, unsigned int ln);
-void add(stack_t **h, unsigned int ln);
-void nop(stack_t **h, unsigned int ln);
+void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int line_number);
+void _pint(stack_t **stack, unsigned int line_number);
+void _pop(stack_t **stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
+void _add(stack_t **stack, unsigned int line_number);
+void _nop(stack_t **stack, unsigned int line_number);
 
 void (*get_op(char *str))(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *head);

@@ -24,12 +24,12 @@ void _push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	new_node->n = value; 
+	new_node->n = value;
 	new_node->prev = NULL;
 	new_node->next = *stack;
 
 	if (*stack)
-		(*stack)->prev = new_node; 
+		(*stack)->prev = new_node;
 /*le asigna el nuevo puntero al prev */
 	*stack = new_node;
 }
@@ -59,13 +59,13 @@ void _pall(stack_t **stack, unsigned int line_number)
 
 void _pint(stack_t **stack, unsigned int line_number)
 {
-    if (*stack == NULL) /*only needs to print the stack*/
-    {
-        printf("L%u: can't pint, stack empty\n", line_number); 
-        exit(EXIT_FAILURE);
-    }
-    
-    printf("%d\n", (*stack)->n);
+	if (*stack == NULL) /*only needs to print the stack*/
+	{
+		printf("L%u: can't pint, stack empty\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", (*stack)->n);
 }
 /**
  * _pop - deletes the top element of the stack
@@ -74,14 +74,14 @@ void _pint(stack_t **stack, unsigned int line_number)
 */
 void _pop(stack_t **stack, unsigned int line_number)
 {
-    if (*stack == NULL)
-    {
-        printf("L%u: can't pop an empty stack\n", line_number);
-        exit(EXIT_FAILURE);
-    }
+	if (*stack == NULL)
+	{
+		printf("L%u: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 
-    stack_t *temp = *stack;
+	stack_t *temp = *stack;
 
-    *stack = (*stack)->next; /*points to the 2nd superior node*/
-    free(temp);
+	*stack = (*stack)->next; /*points to the 2nd superior node*/
+	free(temp);
 }
