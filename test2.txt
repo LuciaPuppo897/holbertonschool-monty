@@ -1,5 +1,0 @@
-push 9
-push 4
-push 50
-add
-pall
