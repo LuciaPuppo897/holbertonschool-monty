@@ -23,7 +23,7 @@ int value;
 /**
  * main - Entry point
  * @argc: Number of arguments
- * @argv: Pointers to arguments
+ * @argv: Pointers to args
  * Return: 0
  */
 int main(int argc, char *argv[])
