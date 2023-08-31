@@ -24,9 +24,6 @@ int is_valid_num(char *str)
 
 	return (1);
 }
-
-#include "monty.h"
-
 /**
  * free_stack - Frees a doubly linked list
  * @stack: Pointer to the head of the stack

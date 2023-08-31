@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * get_tokens - tokenize the data
- * line: buff
+ * @line: buff
  * Return: a struct
 */
 opcode_data get_tokens(char *line)
