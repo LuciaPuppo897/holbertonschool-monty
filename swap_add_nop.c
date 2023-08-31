@@ -1,29 +1,31 @@
 #include "monty.h"
-
-/*
- * _swap - swap 2 most recent nodes on stack
-*@stack: Pointer to the top of the stack.
+/**
+ * _swap - swaps the twp top elements of the stack
+ *	@stack: Pointer to the top of the stack.
  * @line_number: Line number in the file.
+ *
 */
-
-/*
 void _swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
-	int x;
-
-	if (*h == NULL || (*h)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", ln);
-		isFail = 1;
-		return;
+		printf("L%d: can't swap, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
 	}
-	temp = (*h)->next;
-	x = (*h)->n;
-	(*h)->n = temp->n;
-	temp->n = x;
 
-} */
+	stack_t *first = *stack;
+	stack_t *second = (*stack)->next;
+	stack_t *third = second->next;
+
+	first->next = second->next;
+	second->next = first;
+	if (third)
+		third->prev = first;
+	first->prev = second;
+	second->prev = NULL;
+	*stack = second;
+}
+
 
 /**
  * _add - add the 2 top nodes of stack
@@ -32,14 +34,21 @@ void _swap(stack_t **stack, unsigned int line_number)
  */
 void _add(stack_t **stack, unsigned int line_number)
 {
-	if (*stack == NULL || (*stack)->next == NULL) /*if less than 2*/
-	{
-		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
+	int sum = 0;
 
-	(*stack)->next->n += (*stack)->n;
-	_pop(stack, line_number); /*delete the top node*/
+	if (*stack == NULL || (*stack)->next == NULL)
+{
+	printf("L%d: can't add, stack too short\n", line_number);
+	exit(EXIT_FAILURE);
+}
+
+stack_t *node_1 = *stack;
+stack_t *node_2 = (*stack)->next;
+
+sum = node_1->n + node_2->n;
+node_2->n = sum;
+
+_pop(stack, line_number);
 }
 
 /**
@@ -47,7 +56,6 @@ void _add(stack_t **stack, unsigned int line_number)
  *	@stack: Pointer to the top of the stack.
  * @line_number: Line number in the file.
 */
-
 void _nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;

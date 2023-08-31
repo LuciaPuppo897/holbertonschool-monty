@@ -62,7 +62,7 @@ void _swap(stack_t **stack, unsigned int line_number);
 void _add(stack_t **stack, unsigned int line_number);
 void _nop(stack_t **stack, unsigned int line_number);
 int main(int argc, char *argv[]);
-void process_file(FILE *file);
+void execute_cmd(char *argv);
 int execute_opcode(char *opcode, stack_t **stack, char *data, int line_number);
 void free_stack(stack_t **stack);
 #endif

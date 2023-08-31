@@ -1,4 +1,28 @@
 #include "monty.h"
+
+/**
+ * new_Node - creates a new node
+ * @n: data of the new node
+ * Return: pointer to new node
+ */
+int value;
+stack_t *new_Node(int n)
+{
+	stack_t *new = NULL;
+
+	new = malloc(sizeof(stack_t));
+
+	if (new == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	new->n = n;
+	new->next = NULL;
+	new->prev = NULL;
+	return (new);
+}
+
 /**
  * _push - Pushes an element onto the stack.
  * @stack: pointer to the top of the stack.
@@ -6,32 +30,14 @@
  */
 void _push(stack_t **stack, unsigned int line_number)
 {
-	char *value_str = strtok(NULL, " \n");
 
-	if (!value_str)
-	{
-		printf("L%d: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-
-	int value = atoi(value_str);
-
-	stack_t *new_node = malloc(sizeof(stack_t));
-
-	if (!new_node)
-	{
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-
-	new_node->n = value;
-	new_node->prev = NULL;
-	new_node->next = *stack;
-
-	if (*stack)
-		(*stack)->prev = new_node;
-/*le asigna el nuevo puntero al prev */
-	*stack = new_node;
+	stack_t *new = NULL;
+	(void)line_number;
+	new = new_Node(value);
+	new->next = *stack;
+	if (*stack != NULL)
+		(*stack)->prev = new;
+	*stack = new;
 }
 
 /**
@@ -43,6 +49,9 @@ void _pall(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	stack_t *current = *stack;
+
+	if (*stack == NULL)
+	return;
 
 	while (current != NULL)
 	{
@@ -74,7 +83,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 */
 void _pop(stack_t **stack, unsigned int line_number)
 {
-	if (*stack == NULL)
+	if (*stack == NULL || stack == NULL)
 	{
 		printf("L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
