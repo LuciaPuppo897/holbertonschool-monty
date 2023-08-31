@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * new_Node - creates a new node
  * @n: data of the new node
@@ -9,9 +8,7 @@ int value;
 stack_t *new_Node(int n)
 {
 	stack_t *new = NULL;
-
 	new = malloc(sizeof(stack_t));
-
 	if (new == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
@@ -22,7 +19,6 @@ stack_t *new_Node(int n)
 	new->prev = NULL;
 	return (new);
 }
-
 /**
  * _push - Pushes an element onto the stack.
  * @stack: pointer to the top of the stack.
@@ -30,10 +26,10 @@ stack_t *new_Node(int n)
  */
 void _push(stack_t **stack, unsigned int line_number)
 {
-
+	
 	stack_t *new = NULL;
 	(void)line_number;
-	new = new_Node(value);
+	new = new_Node(value); 
 	new->next = *stack;
 	if (*stack != NULL)
 		(*stack)->prev = new;
@@ -49,7 +45,6 @@ void _pall(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 	stack_t *current = *stack;
-
 	if (*stack == NULL)
 	return;
 
@@ -62,8 +57,8 @@ void _pall(stack_t **stack, unsigned int line_number)
 
 /**
  * _pint- prints the value at the top of the stack
- *@stack: Pointer to the top of the stack
- *@line_number: Line number in the file
+ *@stack: Pointer to the top of the stack.
+ *@line_number: Line number in the file.
 */
 
 void _pint(stack_t **stack, unsigned int line_number)
@@ -78,8 +73,8 @@ void _pint(stack_t **stack, unsigned int line_number)
 }
 /**
  * _pop - deletes the top element of the stack
- * @stack: Pointer to the top of the stack
- * @line_number: Line number in the file
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
 */
 void _pop(stack_t **stack, unsigned int line_number)
 {

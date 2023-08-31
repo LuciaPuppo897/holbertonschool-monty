@@ -1,10 +1,9 @@
 #include "monty.h"
-int value;
 /**
- * _swap - swaps the twp top elements of the stack
- *	@stack: Pointer to the top of the stack
- * @line_number: Line number in the file
- *
+ * _swap. swaps the twp top elements of the stack
+ *	@stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
+ * 
 */
 void _swap(stack_t **stack, unsigned int line_number)
 {
@@ -26,12 +25,10 @@ void _swap(stack_t **stack, unsigned int line_number)
 	second->prev = NULL;
 	*stack = second;
 }
-
-
 /**
  * _add - add the 2 top nodes of stack
- * @stack: Pointer to the top of the stack
- * @line_number: Line number in the file
+ * @stack: Pointer to the top of the stack.
+ * @line_number: Line number in the file.
  */
 void _add(stack_t **stack, unsigned int line_number)
 {
@@ -58,7 +55,7 @@ _pop(stack, line_number);
  * @line_number: Line number in the file.
 */
 void _nop(stack_t **stack, unsigned int line_number)
-{
+{ 
 	(void)stack;
 	(void)line_number;
 }
