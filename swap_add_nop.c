@@ -1,4 +1,5 @@
 #include "monty.h"
+int value;
 /**
  * _swap - swaps the twp top elements of the stack
  *	@stack: Pointer to the top of the stack
