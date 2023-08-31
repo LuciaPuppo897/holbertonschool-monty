@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * _swap -swaps the twp top elements of the stack
+ * _swap - swaps the twp top elements of the stack
  *	@stack: Pointer to the top of the stack.
  * @line_number: Line number in the file.
  *
@@ -9,7 +9,7 @@ void _swap(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		dprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		printf("L%d: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
