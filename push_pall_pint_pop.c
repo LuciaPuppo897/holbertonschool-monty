@@ -9,6 +9,7 @@ stack_t *new_Node(int n)
 {
 	stack_t *new = NULL;
 	new = malloc(sizeof(stack_t));
+
 	if (new == NULL)
 	{
 		dprintf(STDERR_FILENO, "Error: malloc failed\n");
@@ -25,11 +26,10 @@ stack_t *new_Node(int n)
  * @line_number: Line number in the file.
  */
 void _push(stack_t **stack, unsigned int line_number)
-{
-	
+{	
 	stack_t *new = NULL;
 	(void)line_number;
-	new = new_Node(value); 
+	new = new_Node(value);
 	new->next = *stack;
 	if (*stack != NULL)
 		(*stack)->prev = new;

@@ -7,10 +7,10 @@
 int is_valid_num(char *str)
 {
 	char *temp = str;
-	
+
 	if (str == NULL)
-		return 0;
-	
+		return (0);
+
 	if (*temp == '-')
 		temp++;
 
@@ -18,11 +18,11 @@ int is_valid_num(char *str)
 	{
 		if ((*temp < '0' || *temp > '9'))
 		{
-			return 0;
+			return (0);
 		}
 	}
-	
-	return 1;
+
+	return (1);
 }
 
 #include "monty.h"
@@ -33,13 +33,13 @@ int is_valid_num(char *str)
  */
 void free_stack(stack_t **stack)
 {
-    stack_t *current = *stack;
-    stack_t *next;
+	stack_t *current = *stack;
+	stack_t *next;
 
-    while (current != NULL)
-    {
-        next = current->next;
-        free(current);
-        current = next;
-    }
+	while (current != NULL)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
 }
